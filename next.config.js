@@ -65,11 +65,13 @@ const nextConfig = {
     pagesBufferLength: 2,
   },
   
-  // Let Vercel handle the output configuration
+  // Vercel-specific configurations
+  distDir: '.next',
+  trailingSlash: false,
   
   // Fix experimental options according to Next.js 15 requirements
   experimental: {
-    // Remove serverActions entirely to avoid compatibility issues
+    // Empty to avoid compatibility issues
   },
   
   // Disable unnecessary webpack optimizations that can cause issues
@@ -87,6 +89,12 @@ const nextConfig = {
     }
     return config;
   },
+  
+  // Add assetPrefix for production deployments
+  assetPrefix: process.env.NODE_ENV === 'production' ? undefined : undefined,
+  
+  // Simplified output options
+  output: 'standalone',
 }
 
 // Enable Turbopack for development if needed

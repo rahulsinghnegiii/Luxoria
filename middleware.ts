@@ -6,11 +6,14 @@ const protectedRoutes = [
   '/profile',
   '/orders',
   '/wishlist',
+  '/main-routes/profile',
+  '/main-routes/orders',
 ];
 
 // Routes that allow guest checkout but could benefit from authentication
 const guestCheckoutRoutes = [
   '/checkout',
+  '/main-routes/checkout',
 ];
 
 // Admin-only routes (requiring admin privileges)
@@ -23,6 +26,8 @@ const adminRoutes = [
 const paymentRoutes = [
   '/checkout/success',
   '/checkout/payment',
+  '/main-routes/checkout/success',
+  '/main-routes/checkout/payment',
 ];
 
 export function middleware(request: NextRequest) {
@@ -91,5 +96,8 @@ export const config = {
     '/admin/:path*',
     '/checkout/:path*',
     '/wishlist/:path*',
+    '/main-routes/profile/:path*',
+    '/main-routes/orders/:path*',
+    '/main-routes/checkout/:path*',
   ]
 }; 

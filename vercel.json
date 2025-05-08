@@ -14,5 +14,15 @@
     "NEXT_PUBLIC_FIREBASE_APP_ID": "${NEXT_PUBLIC_FIREBASE_APP_ID}",
     "NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID": "${NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID}",
     "NEXT_PUBLIC_USE_MOCK_SERVICES": "false"
-  }
+  },
+  "regions": ["sfo1"],
+  "rewrites": [
+    { "source": "/", "destination": "/main-routes" },
+    { "source": "/products/:path*", "destination": "/main-routes/products/:path*" },
+    { "source": "/about", "destination": "/main-routes/about" },
+    { "source": "/cart", "destination": "/main-routes/cart" },
+    { "source": "/checkout/:path*", "destination": "/main-routes/checkout/:path*" },
+    { "source": "/profile/:path*", "destination": "/main-routes/profile/:path*" },
+    { "source": "/orders/:path*", "destination": "/main-routes/orders/:path*" }
+  ]
 } 
